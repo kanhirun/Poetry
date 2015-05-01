@@ -5,6 +5,34 @@ from poetry import Poetry
 
 
 class PoetryTest(TestCase):
+
+  def testAppleIsALegalWord(self):
+    """
+      `apple` is a word because 
+      (1) every letter belongs in a-zA-Z,
+      (2) there is at least one vowel—in this example, there are exactly 2.
+    """
+    poetry = Poetry()
+    word   = "apple"
+
+    results = poetry.isLegalWord(word)
+
+    self.assertEqual(True, results)
+
+
+  def test4ppleIsNotALegalWord(self):
+    """
+      A legal word does not contain numbers, because it does not belong in
+      a-zA-Z.
+    """
+    poetry = Poetry()
+    word = "4pple"
+
+    results = poetry.isLegalWord(word)
+
+    self.assertEqual(False, results)
+
+
   def testCharacterIsLetter(self):
     poetry    = Poetry()
     character = "a"

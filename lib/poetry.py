@@ -4,11 +4,21 @@ class Poetry(object):
     self.VOWELS = set(["a", "e", "i", "o", "u"])
     super()
 
+  def isLegalWord(self, word):
+    isLegal = True
 
-  def isLetter(self, character):
-    val = ord(character)
+    for (i, char) in enumerate(word):
+      if (not self.isLetter(char)):
+        isLegal = False
+        break
 
-    return (65 <= val <= 90) or (97 <= val <= 122)  # a-zA-Z
+    return isLegal
+
+
+  def isLetter(self, char):
+    val = ord(char)
+
+    return (65 <= val <= 90) or (97 <= val <= 122)
 
 
   def isVowel(self, letter, letterIndex, maxIndex):
