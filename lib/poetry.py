@@ -5,14 +5,18 @@ class Poetry(object):
     super()
 
   def isLegalWord(self, word):
-    isLegal = True
+    isLegal  = True
+    hasVowel = False
+    n        = len(word)
 
     for (i, char) in enumerate(word):
       if (not self.isLetter(char)):
         isLegal = False
         break
+      if (not hasVowel) and self.isVowel(char, i, n):
+        hasVowel = True 
 
-    return isLegal
+    return isLegal and hasVowel
 
 
   def isLetter(self, char):

@@ -20,6 +20,19 @@ class PoetryTest(TestCase):
     self.assertEqual(True, results)
 
 
+  def testRpmmvIsNotALegalWord(self):
+    """
+      No vowels.
+    """
+
+    poetry = Poetry()
+    word = "Rpmmv"
+
+    results = poetry.isLegalWord(word)
+
+    self.assertEqual(False, results)
+
+
   def test4ppleIsNotALegalWord(self):
     """
       A legal word does not contain numbers, because it does not belong in
