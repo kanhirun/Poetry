@@ -1,8 +1,6 @@
 class Poetry(object):
 
-  def __init__(self):
-    self.VOWELS = set(["a", "e", "i", "o", "u"])
-    super()
+  VOWELS = set(["a", "e", "i", "o", "u"])
 
   def isLegalWord(self, word):
     areLetters = True
