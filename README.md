@@ -1,5 +1,9 @@
 # Poetry
 
+# Dependencies
+
+Running `$ python runtests.py` requires python >= 2.6 due to argparse dependency
+
 ## Problem Statement
 
 Given a poem, determine its rhyme scheme.
