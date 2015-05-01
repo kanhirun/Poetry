@@ -5,6 +5,28 @@ from poetry import Poetry
 
 
 class PoetryTest(TestCase):
+  def testCharacterIsLetter(self):
+    poetry    = Poetry()
+    character = "a"
+
+    results = poetry.isLetter(character)
+
+    self.assertEqual(True, results)
+
+
+  def testCharacterIsNotLetter(self):
+    """
+      The test example tests a (possible) edge case on using ASCII calculations
+      to determine whether a character is a letter.
+    """
+    poetry    = Poetry()
+    character = "["
+
+    results = poetry.isLetter(character)
+
+    self.assertEqual(False, results)
+
+
   def testLetterIsAVowel(self):
     poetry = Poetry()
     letter = "a"
