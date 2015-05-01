@@ -24,13 +24,24 @@ class PoetryTest(unittest.TestCase):
     """
       No vowels.
     """
-
     poetry = Poetry()
     word = "Rpmmv"
 
     results = poetry.isLegalWord(word)
 
     self.assertEqual(False, results)
+
+
+  def testRymmvIsALegalWord(self):
+    """
+      In the word, Rymmv, y acts as a vowel.
+    """
+    poetry = Poetry()
+    word = "Rymmv"
+
+    results = poetry.isLegalWord(word)
+
+    self.assertEqual(True, results)
 
 
   def test4ppleIsNotALegalWord(self):
@@ -90,7 +101,7 @@ class PoetryTest(unittest.TestCase):
     poetry = Poetry()
     letter = "y"
 
-    results = poetry.isVowel(letter, 2, 3)  # y is the 2nd letter of a
+    results = poetry.isVowel(letter, 1, 3)  # y is the 2nd letter of a
                                             # 3-letter word, therefore it is a
                                             # vowel
 
@@ -101,7 +112,7 @@ class PoetryTest(unittest.TestCase):
     poetry = Poetry()
     letter = "y"
 
-    results = poetry.isVowel(letter, 1, 3)  # y is the first letter, therefore
+    results = poetry.isVowel(letter, 0, 3)  # y is the first letter, therefore
                                             # it is not a vowel
 
     self.assertEqual(False, results)

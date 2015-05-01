@@ -25,4 +25,4 @@ class Poetry(object):
 
   def isVowel(self, letter, letterIndex, maxIndex):
     return (letter in self.VOWELS) or \
-           (letter is "y" and (letterIndex != 1 and letterIndex != maxIndex))
+           (letter is "y" and (letterIndex != 0 and letterIndex != maxIndex))
