@@ -1,10 +1,10 @@
 import pytest
-from unittest import TestCase
+import unittest
 
 from poetry import Poetry
 
 
-class PoetryTest(TestCase):
+class PoetryTest(unittest.TestCase):
 
   def testAppleIsALegalWord(self):
     """
