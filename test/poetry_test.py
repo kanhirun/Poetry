@@ -15,7 +15,7 @@ class PoetryTest(unittest.TestCase):
     word          = "bought"
     endingPattern = "ought"
 
-    results = poetry.getEndingPattern(word)
+    results = poetry.endingPattern(word)
 
     self.assertEqual(endingPattern, results)
 
@@ -28,7 +28,7 @@ class PoetryTest(unittest.TestCase):
     word          = "spying"
     endingPattern = "ying"
 
-    results = poetry.getEndingPattern(word)
+    results = poetry.endingPattern(word)
 
     self.assertEqual(endingPattern, results)
 
@@ -41,7 +41,7 @@ class PoetryTest(unittest.TestCase):
     word          = "all"
     endingPattern = "all"
 
-    results = poetry.getEndingPattern(word)
+    results = poetry.endingPattern(word)
 
     self.assertEqual(endingPattern, results)
 

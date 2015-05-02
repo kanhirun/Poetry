@@ -2,7 +2,7 @@ class Poetry(object):
 
   VOWELS = set(["a", "e", "i", "o", "u"])  # excludes the conditional vowel, y.
 
-  def getEndingPattern(self, word):
+  def endingPattern(self, word):
     n = len(word)
     i = (n - 1)
     j = -1
