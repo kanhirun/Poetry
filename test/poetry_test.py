@@ -6,11 +6,50 @@ from poetry import Poetry
 
 class PoetryTest(unittest.TestCase):
 
+  def testBoughtEndingPattern(self):
+    """
+    The ending pattern of `bought` is `ought`.
+    """
+    poetry        = Poetry()
+    word          = "bought"
+    endingPattern = "ought"
+
+    results = poetry.getEndingPattern(word)
+
+    self.assertEqual(endingPattern, results)
+
+
+  def testSpyingEndingPattern(self):
+    """
+    The ending pattern of `spying` is `ying`, because `y` acts as a vowel.
+    """
+    poetry        = Poetry()
+    word          = "spying"
+    endingPattern = "ying"
+
+    results = poetry.getEndingPattern(word)
+
+    self.assertEqual(endingPattern, results)
+
+
+  def testAllEndingPattern(self):
+    """
+    The ending pattern of `all` is itself.
+    """
+    poetry        = Poetry()
+    word          = "all"
+    endingPattern = "all"
+
+    results = poetry.getEndingPattern(word)
+
+    self.assertEqual(endingPattern, results)
+
+
   def testAppleIsALegalWord(self):
     """
-      `apple` is a word because 
-      (1) every letter belongs in a-zA-Z,
-      (2) there is at least one vowel—in this example, there are exactly 2.
+    `apple` is a word because...
+    (1) every letter belongs in a-zA-Z,
+    (2) there is at least one vowel—in this example, there are exactly 2.
     """
     poetry = Poetry()
     word   = "apple"
@@ -22,7 +61,7 @@ class PoetryTest(unittest.TestCase):
 
   def testRpmmvIsNotALegalWord(self):
     """
-      No vowels.
+    `Rpmmv` is not a legal word, because there are no vowels.
     """
     poetry = Poetry()
     word = "Rpmmv"
@@ -34,7 +73,7 @@ class PoetryTest(unittest.TestCase):
 
   def testRymmvIsALegalWord(self):
     """
-      In the word, Rymmv, y acts as a vowel.
+    In the word, `Rymmv`, y acts as a vowel, therefore `Rymmv` is a legal word.
     """
     poetry = Poetry()
     word = "Rymmv"
@@ -46,8 +85,8 @@ class PoetryTest(unittest.TestCase):
 
   def test4ppleIsNotALegalWord(self):
     """
-      A legal word does not contain numbers, because it does not belong in
-      a-zA-Z.
+    A legal word does not contain numbers, because it does not belong in
+    a-zA-Z.
     """
     poetry = Poetry()
     word = "4pple"
@@ -68,8 +107,8 @@ class PoetryTest(unittest.TestCase):
 
   def testCharacterIsNotLetter(self):
     """
-      The test example tests a (possible) edge case on using ASCII calculations
-      to determine whether a character is a letter.
+    The test example tests a (possible) edge case on using ASCII calculations
+    to determine whether a character is a letter.
     """
     poetry    = Poetry()
     character = "["

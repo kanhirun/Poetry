@@ -2,6 +2,27 @@ class Poetry(object):
 
   VOWELS = set(["a", "e", "i", "o", "u"])
 
+  def getEndingPattern(self, word):
+    n = len(word)
+    i = (n - 1)
+    j = -1
+
+    while (i >= 0):
+      currLetter = word[i]
+      if self.isVowel(currLetter, i, n):
+        j = (i - 1)
+        break
+      i -= 1
+
+    while (j >= 0):
+      currLetter = word[j]
+      if (not self.isVowel(currLetter, j, n)):
+        return word[j+1:n]
+      j -= 1
+
+    return word
+
+
   def isLegalWord(self, word):
     areLetters = True
     hasVowel   = False
@@ -14,7 +35,7 @@ class Poetry(object):
       if (not hasVowel) and self.isVowel(char, i, n):
         hasVowel = True 
 
-    return areLetters and hasVowel
+    return (areLetters and hasVowel)
 
 
   def isLetter(self, char):
