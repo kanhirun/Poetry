@@ -7,6 +7,36 @@ from generators import alphabetGenerator
 
 class PoetryTest(unittest.TestCase):
 
+  def testAreRhymingWords(self):
+    poetry = Poetry()
+    w1 = "pills"
+    w2 = "ills"
+
+    results = poetry.areRhymingWords(w1, w2)
+
+    self.assertEqual(True, results)
+
+
+  def testLastWord(self):
+    poetry   = Poetry()
+    line     = "I hope this problem"
+    expected = "problem"
+
+    results = poetry._lastWord(line)
+
+    self.assertEqual(expected, results)
+
+
+  def testOnlyWordLastWord(self):
+    poetry   = Poetry()
+    line     = "problem"
+    expected = "problem"
+
+    results = poetry._lastWord(line)
+
+    self.assertEqual(expected, results)
+
+
   def testBoughtEndingPattern(self):
     """
     The ending pattern of `bought` is `ought`.

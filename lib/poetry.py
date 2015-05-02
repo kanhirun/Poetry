@@ -2,6 +2,10 @@ class Poetry(object):
 
   VOWELS = set(["a", "e", "i", "o", "u"])  # excludes the conditional vowel, y.
 
+  def areRhymingWords(self, w1, w2):
+    return (self.endingPattern(w1) == self.endingPattern(w2))
+
+
   def endingPattern(self, word):
     n = len(word)
     i = (n - 1)
@@ -47,3 +51,9 @@ class Poetry(object):
   def isVowel(self, letter, letterIndex, maxIndex):
     return (letter in self.VOWELS) or \
            (letter is "y" and (letterIndex != 0 and letterIndex != maxIndex))
+
+
+  def _lastWord(self, line):
+    _line = line.split()
+
+    return _line[-1]
