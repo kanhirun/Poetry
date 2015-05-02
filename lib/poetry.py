@@ -1,6 +1,33 @@
+import string
+
+
 class Poetry(object):
 
   VOWELS = set(["a", "e", "i", "o", "u"])  # excludes the conditional vowel, y.
+
+  def rhymeScheme(self, poem):
+    results       = ""
+    knownPatterns = {}  # closed set
+
+    alphabets     = list(string.ascii_letters)
+    i = 0
+    n = len(alphabets)
+
+    for line in poem:
+      lastWord = self._lastWord(line)
+      endingPattern = self.endingPattern(lastWord)
+
+      try:
+        symbol  = knownPatterns[endingPattern]
+      except KeyError:
+        symbol = alphabets[i]
+        knownPatterns[endingPattern] = symbol
+        i += 1
+
+      results += symbol
+
+    return results
+
 
   def areRhymingWords(self, w1, w2):
     return (self.endingPattern(w1) == self.endingPattern(w2))

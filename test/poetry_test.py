@@ -7,6 +7,18 @@ from generators import alphabetGenerator
 
 class PoetryTest(unittest.TestCase):
 
+  def test1(self):
+    poetry   = Poetry()
+    poem     = ["I hope this problem",
+                "is a whole lot better than",
+                "this stupid haiku"]
+    expected = "abc"
+
+    results = poetry.rhymeScheme(poem)
+
+    self.assertEqual(expected, results)
+
+
   def testAreRhymingWords(self):
     poetry = Poetry()
     w1 = "pills"
