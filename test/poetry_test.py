@@ -2,6 +2,7 @@ import pytest
 import unittest
 
 from poetry import Poetry
+from generators import alphabetGenerator
 
 
 class PoetryTest(unittest.TestCase):
