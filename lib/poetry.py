@@ -1,6 +1,6 @@
 class Poetry(object):
 
-  VOWELS = set(["a", "e", "i", "o", "u"])
+  VOWELS = set(["a", "e", "i", "o", "u"])  # excludes the conditional vowel, y.
 
   def getEndingPattern(self, word):
     n = len(word)
