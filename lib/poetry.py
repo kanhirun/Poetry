@@ -8,6 +8,7 @@ class Poetry(object):
   def rhymeScheme(self, poem):
     results       = ""
     knownPatterns = {}  # closed set
+    emptySymbol   = " "
 
     alphabets     = list(string.ascii_letters)
     i = 0
@@ -15,6 +16,11 @@ class Poetry(object):
 
     for line in poem:
       lastWord = self._lastWord(line)
+
+      if (not lastWord):
+        results += emptySymbol
+        continue
+
       endingPattern = self.endingPattern(lastWord)
 
       try:
@@ -26,6 +32,7 @@ class Poetry(object):
 
       results += symbol
 
+    print(knownPatterns)
     return results
 
 
@@ -34,24 +41,26 @@ class Poetry(object):
 
 
   def endingPattern(self, word):
-    n = len(word)
+    _word = word.lower()
+    n = len(_word)
     i = (n - 1)
     j = -1
 
     while (i >= 0):
-      currLetter = word[i]
+      currLetter = _word[i]
       if self.isVowel(currLetter, i, n):
         j = (i - 1)
         break
       i -= 1
 
     while (j >= 0):
-      currLetter = word[j]
+      currLetter = _word[j]
       if (not self.isVowel(currLetter, j, n)):
-        return word[j+1:n]
+        substring = _word[j+1:n]
+        return substring 
       j -= 1
 
-    return word
+    return _word
 
 
   def isLegalWord(self, word):
@@ -83,4 +92,8 @@ class Poetry(object):
   def _lastWord(self, line):
     _line = line.split()
 
-    return _line[-1]
+    if _line:
+      lastWord = _line[-1]
+      return lastWord 
+    else:
+      return ""
