@@ -32,7 +32,6 @@ class Poetry(object):
 
       results += symbol
 
-    print(knownPatterns)
     return results
 
 
@@ -41,7 +40,7 @@ class Poetry(object):
 
 
   def endingPattern(self, word):
-    _word = word.lower()
+    _word = word.lower()  # ending patterns are case-insentive
     n = len(_word)
     i = (n - 1)
     j = -1
@@ -80,7 +79,6 @@ class Poetry(object):
 
   def isLetter(self, char):
     val = ord(char)
-
     return (65 <= val <= 90) or (97 <= val <= 122)
 
 
